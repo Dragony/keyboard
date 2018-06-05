@@ -1,0 +1,81 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    transition: 1s;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+.keyboard{
+    margin: 0 auto;
+    text-align: center;
+    width: 840px;
+}
+.keyboard-width{
+    display: inline-block;
+}
+.examples ul{
+    margin: 0 0 0 30px;
+    padding: 0;
+    list-style-type: none;
+}
+.examples li{
+    float: left;
+    margin-right: 1rem;
+}
+.examples li:first-child{
+    font-weight: bold;
+}
+h1{
+    display: block;
+    text-align: left;
+    margin-bottom: 0.1rem;
+    margin-left: 30px;
+}
+.screen-border{
+    border: 2px solid #525252;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    width: 840px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    background-color: white;
+}
+.screen-border-inner{
+    border: 2px solid #525252;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    height: 200px;
+    text-align: center;
+}
+#screen-text{
+    font-size: 4em;
+    background: transparent;
+    border: transparent;
+    width: 85%;
+    height: 200px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+#screen-text.loading{
+    opacity: 0;
+    color: green;
+}
+#tipButton{
+    font-size: 1em;
+    background-color: cornflowerblue;
+    border-radius: 3px;
+    border: 1px white solid;
+    color: white;
+    padding: .3em .5em;
+}
+#tipButton:active{
+    font-size: 1em;
+    background-color: cornflowerblue;
+    border-radius: 3px;
+    color: white;
+    padding: .3em .5em;
+    border: 1px grey inset;
+}

@@ -5,6 +5,7 @@ var allKeywords = [];
 for(var i in keywords){
     allKeywords.push(i);
 }
+shuffle_array(allKeywords);
 var totalKeywords = allKeywords.length;
 document.addEventListener("keydown", function(click){
     var keyEl = getKey(click);
@@ -23,7 +24,17 @@ document.addEventListener("keyup", function(click){
     }
 });
 function flashKey(key){
-    var keyEl = getKey({key: key, code: ""});
+    if(key === '.'){
+        flashCode('Period');
+        return;
+    }
+    flashButton({key: key, code: ""});
+}
+function flashCode(code){
+    flashButton({key: "", code: code});
+}
+function flashButton(params){
+    var keyEl = getKey(params);
     if(keyEl) {
         keyEl.style.fill = getRandomColor();
         setTimeout(function(){
@@ -32,6 +43,15 @@ function flashKey(key){
     }
 }
 function typeLetters(string){
+    if(string === 'Enter'){
+        flashCode(string);
+        return;
+    }
+    if(string === 'ArrowUpArrowDown'){
+        flashCode('ArrowUp');
+        setTimeout(flashCode.bind(this, 'ArrowDown'), 200);
+        return
+    }
     var typeSpeed = 300;
     var letters = string.split("");
     letters.forEach(function(letter, key){
@@ -107,9 +127,22 @@ function triggerKeywords(string){
 function tip(){
     for(var i in allKeywords){
         if(!~knownKeywords.indexOf(allKeywords[i])){
-            console.log(allKeywords[i]);
             typeLetters(allKeywords[i]);
             break;
         }
     }
+}
+/**
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle_array(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
 }

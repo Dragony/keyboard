@@ -2,7 +2,7 @@ var keywords = {
     Enter: function(){
         swal(
             'Howto',
-            'You don not need to press enter, commands will be accepted right away',
+            'You don not need to press enter, commands will be accepted right away (if they are valid)',
             'success'
         );
     },

@@ -15,6 +15,9 @@ body, html{
 .keyboard-width{
     display: inline-block;
 }
+.examples{
+    display: block;
+}
 .examples ul{
     margin: 0 0 0 30px;
     padding: 0;
@@ -26,6 +29,10 @@ body, html{
 }
 .examples li:first-child{
     font-weight: bold;
+}
+.tipbox{
+    margin: 10px 0 0 30px;
+    text-align: left;
 }
 h1{
     display: block;
@@ -90,4 +97,10 @@ h1{
 }
 #wat_img.show{
     left: 50%;
+}
+
+.cf::after {
+    content: "";
+    clear: both;
+    display: table;
 }

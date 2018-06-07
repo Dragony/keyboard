@@ -92,11 +92,12 @@ function updateScreen(char){
     }
     triggerKeywords(getScreen().value);
 }
-function conf(text){
+function conf(text, type){
+    type = type || 'success';
     return swal({
         title: 'Are you sure?',
         text: text,
-        type: 'success',
+        type: type,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#ccc',

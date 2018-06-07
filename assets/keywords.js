@@ -140,7 +140,11 @@ var keywords = {
         typeLetters("471989");
     },
     source: function(){
-        window.open('view-source:' + location.href, '_blank');
+        conf("Looking at the source might spoil the fun. Continue?", 'warning').then((result) => {
+            if (result.value) {
+                window.open("https://github.com/Dragony/keyboard", "_blank");
+            }
+        });
     },
     lucern: function(){
         window.open('https://photos.app.goo.gl/TikGTOqo67uC5L0s2', '_blank');

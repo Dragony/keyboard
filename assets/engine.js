@@ -85,8 +85,9 @@ function updateScreen(char){
     if(char === 'Backspace'){
         getScreen().value = getScreen().value.slice(0, -1);
     }else{
-        if(getScreen().value.length > 20){
-            getScreen().value = getScreen().value.substr(getScreen().value.length - 20);
+        if(getScreen().value.length >= 20){
+            //getScreen().value = getScreen().value.substr(getScreen().value.length - 20);
+            fadeOutScreen(null, false);
         }
         getScreen().value = getScreen().value + char;
     }
@@ -114,16 +115,21 @@ function triggerKeywords(string){
                     document.getElementById('knownKeywords').innerHTML += '<li>' + keyword + '</li>';
                 }
                 acceptInput = false;
-                getScreen().classList.add('loading');
-                setTimeout(function(keyword){
-                    keywords[keyword]();
-                    acceptInput = true;
-                    getScreen().classList.remove('loading');
-                    getScreen().value = '';
-                }.bind(this, keyword), 1000);
+                fadeOutScreen(keywords[keyword]);
             }
         }
     }
+}
+function fadeOutScreen(cb, success){
+    success = success === undefined ? true : !!success; // Default to true
+    cb = cb || function(){};
+    getScreen().classList.add(success ? 'loading' : 'error');
+    setTimeout(function(cb){
+        cb();
+        acceptInput = true;
+        getScreen().classList.remove(success ? 'loading' : 'error');
+        getScreen().value = '';
+    }.bind(this, cb), 1000);
 }
 function tip(){
     for(var i in allKeywords){

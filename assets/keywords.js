@@ -121,5 +121,28 @@ var keywords = {
         setTimeout(function(){
             wat_img.classList.remove("show");
         }, 2500)
+    },
+    earthquake: function(){
+        var initialTransition = document.body.style.transition;
+        document.body.style.transition = '0.05s';
+        var quakeInterval = setInterval(function(){
+            document.body.style.marginLeft = (Math.random() * 100) / 2 - 25;
+            document.body.style.marginTop = (Math.random() * 100) / 2 - 25;
+        }, 100);
+        setTimeout(function(){
+            clearInterval(quakeInterval);
+            document.body.style.transition = initialTransition;
+            document.body.style.marginLeft = 0;
+            document.body.style.marginTop = 0;
+        }, 5000);
+    },
+    birthday: function(){
+        typeLetters("471989");
+    },
+    source: function(){
+        window.open('view-source:' + location.href, '_blank');
+    },
+    lucern: function(){
+        window.open('https://photos.app.goo.gl/TikGTOqo67uC5L0s2', '_blank');
     }
 };

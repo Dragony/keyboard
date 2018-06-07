@@ -1,6 +1,10 @@
 var keywords = {
     Enter: function(){
-
+        swal(
+            'Howto',
+            'You don not need to press enter, commands will be accepted right away',
+            'success'
+        );
     },
     hello: function(){
         swal(
@@ -83,6 +87,39 @@ var keywords = {
             document.getElementById('key_a').style.fill = 'white';
             document.getElementById('key_s').style.fill = 'white';
             document.getElementById('key_d').style.fill = 'white';
-        }, 3000);
+        }, 2000);
+    },
+    music: function(){
+        var volume = 0.3;
+        music.volume = volume;
+        music.play();
+        setTimeout(function(){
+            var fadeOut = setInterval(function(){
+                var interval = 0.01;
+                volume -= interval;
+                if(volume < 0){
+                    music.pause();
+                    clearInterval(fadeOut);
+                    return;
+                }
+                music.volume = volume;
+            }, 100);
+        }, 10000);
+    },
+    snow: function(){
+        document.body.style.backgroundColor = 'black';
+        document.body.style.color = 'white';
+        snowStorm.toggleSnow();
+        setTimeout(function(){
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+            snowStorm.toggleSnow();
+        }, 5000);
+    },
+    wat: function(){
+        wat_img.classList.add("show");
+        setTimeout(function(){
+            wat_img.classList.remove("show");
+        }, 2500)
     }
 };

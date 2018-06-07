@@ -71,11 +71,23 @@ h1{
     color: white;
     padding: .3em .5em;
 }
-#tipButton:active{
+#tipButton:active {
     font-size: 1em;
     background-color: cornflowerblue;
     border-radius: 3px;
     color: white;
     padding: .3em .5em;
     border: 1px grey inset;
+}
+
+#wat_img{
+    position: fixed;
+    top: 50%;
+    margin-top: -155px;
+    transition: 2s left;
+    margin-left: -165px;
+    left: -165px;
+}
+#wat_img.show{
+    left: 50%;
 }
